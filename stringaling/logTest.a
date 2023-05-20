@@ -1,0 +1,244 @@
+	.file	"logTest.c"
+	.text
+	.globl	byLog10
+	.type	byLog10, @function
+byLog10:
+.LFB6:
+	.cfi_startproc
+	endbr64
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$32, %rsp
+	movl	%edi, -20(%rbp)
+	movl	-20(%rbp), %eax
+	testq	%rax, %rax
+	js	.L2
+	pxor	%xmm2, %xmm2
+	cvtsi2sdq	%rax, %xmm2
+	movq	%xmm2, %rax
+	jmp	.L3
+.L2:
+	movq	%rax, %rdx
+	shrq	%rdx
+	andl	$1, %eax
+	orq	%rax, %rdx
+	pxor	%xmm0, %xmm0
+	cvtsi2sdq	%rdx, %xmm0
+	addsd	%xmm0, %xmm0
+	movq	%xmm0, %rax
+.L3:
+	movq	%rax, %xmm0
+	call	log10@PLT
+	movsd	.LC0(%rip), %xmm1
+	addsd	%xmm1, %xmm0
+	cvttsd2sil	%xmm0, %eax
+	movl	%eax, -8(%rbp)
+	movl	-8(%rbp), %eax
+	andl	$1, %eax
+	testl	%eax, %eax
+	jne	.L4
+	movl	-20(%rbp), %eax
+	jmp	.L5
+.L4:
+	movl	$0, %eax
+.L5:
+	movl	%eax, -4(%rbp)
+	movl	-4(%rbp), %eax
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE6:
+	.size	byLog10, .-byLog10
+	.section	.rodata
+.LC1:
+	.string	"rb"
+.LC2:
+	.string	"integers.bin"
+.LC3:
+	.string	"%d \n"
+	.align 8
+.LC5:
+	.string	" %d  Even Digit Numbers of %d Counted\n"
+.LC6:
+	.string	"Time Spent : %f\n\n"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB7:
+	.cfi_startproc
+	endbr64
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%rbx
+	subq	$88, %rsp
+	.cfi_offset 3, -24
+	movq	%fs:40, %rax
+	movq	%rax, -24(%rbp)
+	xorl	%eax, %eax
+	movq	%rsp, %rax
+	movq	%rax, %rbx
+	movl	$30000, -80(%rbp)
+	movl	-80(%rbp), %eax
+	subq	$1, %rax
+	movq	%rax, -72(%rbp)
+	movl	-80(%rbp), %eax
+	movl	%eax, %eax
+	movq	%rax, %r8
+	movl	$0, %r9d
+	movl	-80(%rbp), %eax
+	movl	%eax, %eax
+	movq	%rax, %rsi
+	movl	$0, %edi
+	movl	-80(%rbp), %eax
+	leaq	0(,%rax,4), %rdx
+	movl	$16, %eax
+	subq	$1, %rax
+	addq	%rdx, %rax
+	movl	$16, %ecx
+	movl	$0, %edx
+	divq	%rcx
+	imulq	$16, %rax, %rax
+	movq	%rax, %rcx
+	andq	$-4096, %rcx
+	movq	%rsp, %rdx
+	subq	%rcx, %rdx
+.L8:
+	cmpq	%rdx, %rsp
+	je	.L9
+	subq	$4096, %rsp
+	orq	$0, 4088(%rsp)
+	jmp	.L8
+.L9:
+	movq	%rax, %rdx
+	andl	$4095, %edx
+	subq	%rdx, %rsp
+	movq	%rax, %rdx
+	andl	$4095, %edx
+	testq	%rdx, %rdx
+	je	.L10
+	andl	$4095, %eax
+	subq	$8, %rax
+	addq	%rsp, %rax
+	orq	$0, (%rax)
+.L10:
+	movq	%rsp, %rax
+	addq	$3, %rax
+	shrq	$2, %rax
+	salq	$2, %rax
+	movq	%rax, -64(%rbp)
+	leaq	.LC1(%rip), %rax
+	movq	%rax, %rsi
+	leaq	.LC2(%rip), %rax
+	movq	%rax, %rdi
+	call	fopen@PLT
+	movq	%rax, -56(%rbp)
+	movl	-80(%rbp), %eax
+	leaq	0(,%rax,4), %rsi
+	movq	-56(%rbp), %rdx
+	movq	-64(%rbp), %rax
+	movq	%rdx, %rcx
+	movl	$1, %edx
+	movq	%rax, %rdi
+	call	fread@PLT
+	call	clock@PLT
+	movq	%rax, -48(%rbp)
+	movl	$0, -84(%rbp)
+	jmp	.L11
+.L13:
+	addl	$1, -92(%rbp)
+	movq	-64(%rbp), %rax
+	movl	-84(%rbp), %edx
+	movslq	%edx, %rdx
+	movl	(%rax,%rdx,4), %eax
+	movl	%eax, %edi
+	call	byLog10
+	movl	%eax, -76(%rbp)
+	cmpl	$0, -76(%rbp)
+	je	.L12
+	addl	$1, -88(%rbp)
+	movl	-76(%rbp), %eax
+	movl	%eax, %esi
+	leaq	.LC3(%rip), %rax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf@PLT
+.L12:
+	addl	$1, -84(%rbp)
+.L11:
+	movl	-84(%rbp), %eax
+	cmpl	%eax, -80(%rbp)
+	ja	.L13
+	call	clock@PLT
+	movq	%rax, -40(%rbp)
+	movq	-40(%rbp), %rax
+	subq	-48(%rbp), %rax
+	pxor	%xmm0, %xmm0
+	cvtsi2sdq	%rax, %xmm0
+	movsd	.LC4(%rip), %xmm1
+	divsd	%xmm1, %xmm0
+	movsd	%xmm0, -32(%rbp)
+	movl	-92(%rbp), %edx
+	movl	-88(%rbp), %eax
+	movl	%eax, %esi
+	leaq	.LC5(%rip), %rax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	movq	-32(%rbp), %rax
+	movq	%rax, %xmm0
+	leaq	.LC6(%rip), %rax
+	movq	%rax, %rdi
+	movl	$1, %eax
+	call	printf@PLT
+	movq	-56(%rbp), %rax
+	movq	%rax, %rdi
+	call	fclose@PLT
+	movq	%rbx, %rsp
+	movl	$0, %eax
+	movq	-24(%rbp), %rdx
+	subq	%fs:40, %rdx
+	je	.L15
+	call	__stack_chk_fail@PLT
+.L15:
+	movq	-8(%rbp), %rbx
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE7:
+	.size	main, .-main
+	.section	.rodata
+	.align 8
+.LC0:
+	.long	0
+	.long	1072693248
+	.align 8
+.LC4:
+	.long	0
+	.long	1093567616
+	.ident	"GCC: (Ubuntu 11.3.0-1ubuntu1~22.04) 11.3.0"
+	.section	.note.GNU-stack,"",@progbits
+	.section	.note.gnu.property,"a"
+	.align 8
+	.long	1f - 0f
+	.long	4f - 1f
+	.long	5
+0:
+	.string	"GNU"
+1:
+	.align 8
+	.long	0xc0000002
+	.long	3f - 2f
+2:
+	.long	0x3
+3:
+	.align 8
+4:
