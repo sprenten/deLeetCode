@@ -7,7 +7,7 @@
 	.globl	byString
 	.type	byString, @function
 byString:
-.LFB0:
+.LFB6:
 	.cfi_startproc
 	endbr64
 	pushq	%rbp
@@ -41,16 +41,25 @@ byString:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE0:
+.LFE6:
 	.size	byString, .-byString
 	.section	.rodata
 .LC1:
+	.string	"rb"
+.LC2:
+	.string	"integers.bin"
+.LC3:
 	.string	"%d \n"
+	.align 8
+.LC5:
+	.string	"%d Even Digit Numbers of %d Counted"
+.LC6:
+	.string	"Time Spent : %f\n\n"
 	.text
 	.globl	main
 	.type	main, @function
 main:
-.LFB1:
+.LFB7:
 	.cfi_startproc
 	endbr64
 	pushq	%rbp
@@ -58,59 +67,149 @@ main:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	subq	$64, %rsp
+	pushq	%rbx
+	subq	$88, %rsp
+	.cfi_offset 3, -24
 	movq	%fs:40, %rax
-	movq	%rax, -8(%rbp)
+	movq	%rax, -24(%rbp)
 	xorl	%eax, %eax
-	movq	$0, -48(%rbp)
-	movq	$0, -40(%rbp)
-	movq	$0, -32(%rbp)
-	movq	$0, -24(%rbp)
-	movq	$0, -16(%rbp)
-	movl	$20, -48(%rbp)
-	movl	$234, -44(%rbp)
-	movl	$78, -40(%rbp)
-	movl	$5092, -36(%rbp)
-	movl	$3, -32(%rbp)
-	movl	$276, -28(%rbp)
-	movl	$843, -24(%rbp)
-	movl	$702123, -20(%rbp)
-	movl	$512, -16(%rbp)
-	movl	$-1, -56(%rbp)
-	movl	$0, -60(%rbp)
+	movq	%rsp, %rax
+	movq	%rax, %rbx
+	movl	$30000, -80(%rbp)
+	movl	-80(%rbp), %eax
+	subq	$1, %rax
+	movq	%rax, -72(%rbp)
+	movl	-80(%rbp), %eax
+	movl	%eax, %eax
+	movq	%rax, %r8
+	movl	$0, %r9d
+	movl	-80(%rbp), %eax
+	movl	%eax, %eax
+	movq	%rax, %rsi
+	movl	$0, %edi
+	movl	-80(%rbp), %eax
+	leaq	0(,%rax,4), %rdx
+	movl	$16, %eax
+	subq	$1, %rax
+	addq	%rdx, %rax
+	movl	$16, %ecx
+	movl	$0, %edx
+	divq	%rcx
+	imulq	$16, %rax, %rax
+	movq	%rax, %rcx
+	andq	$-4096, %rcx
+	movq	%rsp, %rdx
+	subq	%rcx, %rdx
+.L6:
+	cmpq	%rdx, %rsp
+	je	.L7
+	subq	$4096, %rsp
+	orq	$0, 4088(%rsp)
 	jmp	.L6
+.L7:
+	movq	%rax, %rdx
+	andl	$4095, %edx
+	subq	%rdx, %rsp
+	movq	%rax, %rdx
+	andl	$4095, %edx
+	testq	%rdx, %rdx
+	je	.L8
+	andl	$4095, %eax
+	subq	$8, %rax
+	addq	%rsp, %rax
+	orq	$0, (%rax)
 .L8:
-	movl	-60(%rbp), %eax
-	cltq
-	movl	-48(%rbp,%rax,4), %eax
+	movq	%rsp, %rax
+	addq	$3, %rax
+	shrq	$2, %rax
+	salq	$2, %rax
+	movq	%rax, -64(%rbp)
+	leaq	.LC1(%rip), %rax
+	movq	%rax, %rsi
+	leaq	.LC2(%rip), %rax
+	movq	%rax, %rdi
+	call	fopen@PLT
+	movq	%rax, -56(%rbp)
+	movl	-80(%rbp), %eax
+	leaq	0(,%rax,4), %rsi
+	movq	-56(%rbp), %rdx
+	movq	-64(%rbp), %rax
+	movq	%rdx, %rcx
+	movl	$1, %edx
+	movq	%rax, %rdi
+	call	fread@PLT
+	call	clock@PLT
+	movq	%rax, -48(%rbp)
+	movl	$0, -84(%rbp)
+	jmp	.L9
+.L11:
+	addl	$1, -92(%rbp)
+	movq	-64(%rbp), %rax
+	movl	-84(%rbp), %edx
+	movslq	%edx, %rdx
+	movl	(%rax,%rdx,4), %eax
 	movl	%eax, %edi
 	call	byString
-	movl	%eax, -52(%rbp)
-	cmpl	$0, -52(%rbp)
-	je	.L7
-	movl	-52(%rbp), %eax
+	movl	%eax, -76(%rbp)
+	cmpl	$0, -76(%rbp)
+	je	.L10
+	addl	$1, -88(%rbp)
+	movl	-76(%rbp), %eax
 	movl	%eax, %esi
-	leaq	.LC1(%rip), %rax
+	leaq	.LC3(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
-.L7:
-	addl	$1, -60(%rbp)
-.L6:
-	cmpl	$9, -60(%rbp)
-	jle	.L8
-	movl	$0, %eax
-	movq	-8(%rbp), %rdx
-	subq	%fs:40, %rdx
-	je	.L10
-	call	__stack_chk_fail@PLT
 .L10:
+	addl	$1, -84(%rbp)
+.L9:
+	movl	-84(%rbp), %eax
+	cmpl	%eax, -80(%rbp)
+	ja	.L11
+	call	clock@PLT
+	movq	%rax, -40(%rbp)
+	movq	-40(%rbp), %rax
+	subq	-48(%rbp), %rax
+	pxor	%xmm0, %xmm0
+	cvtsi2sdq	%rax, %xmm0
+	movsd	.LC4(%rip), %xmm1
+	divsd	%xmm1, %xmm0
+	movsd	%xmm0, -32(%rbp)
+	movl	-92(%rbp), %edx
+	movl	-88(%rbp), %eax
+	movl	%eax, %esi
+	leaq	.LC5(%rip), %rax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	movq	-32(%rbp), %rax
+	movq	%rax, %xmm0
+	leaq	.LC6(%rip), %rax
+	movq	%rax, %rdi
+	movl	$1, %eax
+	call	printf@PLT
+	movq	-56(%rbp), %rax
+	movq	%rax, %rdi
+	call	fclose@PLT
+	movq	%rbx, %rsp
+	movl	$0, %eax
+	movq	-24(%rbp), %rdx
+	subq	%fs:40, %rdx
+	je	.L13
+	call	__stack_chk_fail@PLT
+.L13:
+	movq	-8(%rbp), %rbx
 	leave
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1:
+.LFE7:
 	.size	main, .-main
+	.section	.rodata
+	.align 8
+.LC4:
+	.long	0
+	.long	1093567616
 	.ident	"GCC: (Ubuntu 11.3.0-1ubuntu1~22.04) 11.3.0"
 	.section	.note.GNU-stack,"",@progbits
 	.section	.note.gnu.property,"a"
