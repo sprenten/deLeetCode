@@ -104,4 +104,26 @@ int main()
 	}
 	printf("C : byRecursiveDiv : Total: %f : Average: %f\n",total_perf,(total_perf/100));
 
+// By NewLog10
+// byRecursiveDiv
+	total_perf = 0;
+	for (int z=1;z<=100;z++)
+	{
+		clock_t begin = clock();
+	           for (int y=0;y<NUM_READ; y++)
+	           {
+			c++;
+	                 b = byNewLog10(i[y]);
+	                if (b>>0)
+	                {
+				num++;
+//	                        printf("%d \n",b);
+	                }
+	           }
+	        clock_t end = clock();
+	        double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+		total_perf += time_spent;
+	}
+	printf("C : byNewLog10 : Total: %f : Average: %f\n",total_perf,(total_perf/100));
+
 }

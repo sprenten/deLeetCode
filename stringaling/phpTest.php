@@ -14,7 +14,8 @@ function  byStringModulo($i)
 {
         $retval = 0;
         $len = strlen($i);
-        if  (($len%2) == 0)
+        settype($len,'integer');
+	if  (($len%2) == 0)
         {
                 $retval = $i;
         }
@@ -25,7 +26,7 @@ function  byStringModulo($i)
 function  byLog10($i)
 {
         $retval = 0;
-        $len = log10($i);
+        $len = intval(log10($i));
         if  ((($len+1)&1) == 0)
         {
                 $retval = $i;
