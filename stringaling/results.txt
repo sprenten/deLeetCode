@@ -1,0 +1,16 @@
+Rust : byString : Total 0.5070000000000003 : Average : 0.005070000000000003
+Rust : byStringModulo : Total : 0.5030000000000003  : Average : 0.005030000000000003
+Rust : bylog10 : Total : 0.10000000000000007  : Average : 0.0010000000000000007
+Rust : byLog10Modulo : Total :  0.10000000000000007 : Average : 0.0010000000000000007
+Rust : byDivision : Total : 0.20100000000000015  : Average : 0.0020100000000000014
+Rust : byRecursiveDiv : Total : 0.3000000000000002 : Average : 0.0030000000000000022
+C : byString : Total: 0.286478 : Average: 0.002865
+C : byLog10 : Total: 0.099757 : Average: 0.000998
+C : byDivision : Total: 0.121159 : Average: 0.001212
+C : byRecursiveDiv : Total: 0.202347 : Average: 0.002023
+Python : byString:  Total :  7.630981866866932  : Average :  0.07630981866866932
+Python : byStringModulo : Total :  7.720625864079921  :  Average :  0.0772062586407992
+Python : byLog10 :  Total :  6.354712053012918  : Average :  0.06354712053012918
+Python : byLog10Modulo : Total :  6.385099788938533  :  Average :  0.06385099788938532
+Python : byDivision :  Total :  27.33091887003684  : Average :  0.2733091887003684
+Python : byRecursiveDiv :  Total :  19.578695091040572  : Average :  0.1957869509104057
