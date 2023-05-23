@@ -47,7 +47,9 @@ unsigned int byString(unsigned int i)
 unsigned int byLog10(unsigned int i)
 {
         unsigned int retval=0;
-        int len = log10(i);
+	float f= log10f(i);
+        unsigned int len =0;
+	memcpy(&f, &len, sizeof(len));
         if (((len+1)&1) == 0)
 		retval=i;
         return retval;
