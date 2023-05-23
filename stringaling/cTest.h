@@ -1,3 +1,5 @@
+
+
 int numDigits(unsigned int i)
 {
     if (i== 0)
@@ -48,8 +50,8 @@ unsigned int byLog10(unsigned int i)
 {
         unsigned int retval=0;
 	float f= log10f(i);
-        unsigned int len =0;
-	memcpy(&f, &len, sizeof(len));
+        int len = (int) f;
+//	int len = convert(f);
         if (((len+1)&1) == 0)
 		retval=i;
         return retval;

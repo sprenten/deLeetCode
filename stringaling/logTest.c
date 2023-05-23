@@ -7,7 +7,9 @@
 unsigned int byLog10(unsigned int i)
 {
 	unsigned int retval;
-	int len = log10(i)+1;
+	float f = log10f(i);
+	int len = (int) f ;
+	len=len+1;
 	retval = ((len&1) == 0)? i : 0;
 	return retval;
 }

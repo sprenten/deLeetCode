@@ -45,6 +45,8 @@ int main()
 	total_perf = 0;
 	for (int z=1;z<=100;z++)
 	{
+		c=0;
+		num=0;
 		clock_t begin = clock();
 	           for (int y=0;y<NUM_READ; y++)
 	           {
@@ -60,7 +62,7 @@ int main()
 	        double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
 		total_perf += time_spent;
 	}
-	printf("C : byLog10 : Total: %f : Average: %f\n",total_perf,(total_perf/100));
+	printf("C : byLog10 : Total: %f : Average: %f : found %d\n",total_perf,(total_perf/100),num);
 
 // byDivision
 	total_perf = 0;
