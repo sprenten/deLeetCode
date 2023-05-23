@@ -57,3 +57,12 @@ unsigned int byLog10(unsigned int i)
         return retval;
 }
 
+unsigned int byNewLog10(unsigned int i)
+{
+	unsigned int retval = 0;
+	unsigned int len = log10f(i);
+	if (((len+1)&1) == 0) 
+		retval = i;
+	return retval;
+}
+
