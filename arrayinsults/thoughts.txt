@@ -1,0 +1,69 @@
+--- Star Date 202305029 ---
+
+Conner Hoekstra of Code Reports, a NVIDIA Sr Engineer/Developer at the time of the video was showing a solution to another
+LeetCode problem which is not optimized for speed or performance.  This time not in technical understanding of underlying computer 
+architecture using string representation of integers to find the number of digits which is faster using integers represented
+as integers in  log10, looped division, or recursive division in languages compiled to executables.  This time it was in the
+mathematical understanding of the problem in LeetCode 77 Problem 4: Split Array with Same Average.  The code example Mr. 
+Hoekstra used has a problem, you had the average already, therefore the search should have started with numbers higher than
+the average as the combinations of those numbers with the lowest numbers is what gives you the fastest answers.  In 2 iterations 
+you have 10+4 and the test case would have been 2+5+7+14.  Also, with the same algorithm you could test for maximum number of 
+splits fast with the same average.   The 2+5+7+14 could be split again into 2+5+14 and 7.  In essense, it's a binary search, 
+LCM/GCD, and quicksort kind of optimizations all roled into 1 problem.   
+
+This is not a slam of Mr. Hoekstra per se, but highlights the fundamental problem that has existed for the past 20+ years in
+software development.  Where engineers, developers, and programmers like myself have been shoved out the doors, silenced, and 
+even demonized.  So much so I have not held a true software development job for almost 10 years, despite constantly applying for
+positions.  Yes, 10 years and I have had probably 3 interviews.  I still write programs in the position I am in, but about 15 
+years ago, I was like a voice in the wilderness after already falling into the OOP trap and even the functional trap.  Too many
+Jr. to Mid level developers and engineers masquarading as Sr level ones and even Software Architects.
+  
+It makes sense, I railed against Java early on in the web 2.0 days, it's still not as fast as PHP or even old school ASP/VB6 code.
+JAVA was almost 50% slower than either PHP or ASP/VB6 code then with database calls in the 2006-2008 time frame.  The shop I was 
+working in at the time decided to never go down the Java route again we were too small to put too much effort into a language 
+which would cost our clients too much money to scale efficiently.  However, this left us with either PHP and VB/ASP and .NET 
+routes.  .NET was still in it's relative infancy, but did just make the leap to .NET 2.0 and with that MS made the push as at
+that time .NET was outperforming JAVA on MS operating systems and the MONO Project was getting into full swing trying to port 
+.NET to Linux and BSD based systems.   Then MS started pushing out more and more libraries making it harder as they also pushed 
+out 2.0, 3.0, 3.5, and 4.0 frameworks in a span of 4.5 years with tons of deprecations and mixing libraries with different 
+frameworks. .NET did offer backward compatability to even COM/DCOM, but still a mess as you mixed VB w VB.NET with C#, with 
+Managed C++ with old school C/C++ MS Libraries unless you refactored to .NET C# or VB.NET.  PHP despite its problems was a much
+more mature language with easier library creation and maintainability, but it too began to drift towards mixing OOP into the 
+language to match what Python web frameworks and Ruby was doing with Ruby on Rails.   
+
+The last paragraph should give you all you need to know, everything started to became web based or browser based and the lack of
+focus on true backend system performance fell out of favor for full stack development usually centered around OOP, Agile
+methodology, and horrible unscalable systems which needed more and more physical servers.  Amazingly, AWS came along at the same 
+time and the platform/service as a service industry was born. The problem is PAAS/SAAS is partly unsustainble over the long run
+because time = money and the least efficient code costs you more money.  To rewrite or refactor costs you money.  To keep
+spitting out apps that you will need to rewrite or refactor will cost you money and that's the OOP/Agile part of the software
+industry in a nutshell.  Mr. Hoekstra is not a problem, it's that he's looked upon in the same realm as a Blow or Carmack in 
+understanding computer architecture and maximizing performance.  
+
+Aesthetically Mr. Hoekstra and I differ on readability of code, but making Jr. level mistakes while masquearading as a Sr. is
+something which should not go unnoticed.  I would still consider myself a Mid to Sr. level developer/engineer depending on the 
+project and no the programming language doesn't matter, being a Sr is about experience and understanding of problems and # of
+unique uses-cases you have encountered in a domain.  The Stringaling rust app, rustyString.rs  was my first time ever using Rust
+and despite my intial reservations on the language.  I do like Rust enough that I feel it should be used more often and replace a
+lot of the .NET and Java garbage which currently exists in backend systems.  I write C code, because I feel it's easier to read 
+and then write the same code in different languages much like he's done on many of his videos using C++.  There is no need for 
+me to replicate his C++ code.  Writing C in C90, C99, ANSI C/C89 forces you to write what is available in many standard libraries
+today in modern languages as he does with his Modern C++ calls.  Yes, I would prefer to write C++98 or C++11 over his newer 
+examples.  
+
+Mr. Hoekstra is a lover of languages, something I can empathize with.  I too love languages but that love lead away from 
+performance. Scripting languages like Python, PHP, etc... still have value, but I am not sure bytecode or intermediate type 
+languages or even garbage collected ones have a significant future as the overhead cost is still too high when the future of VMs 
+is likely to be Architecture as Software. 
+
+I do know I will be wrting my examples in C and Rust.  At this time I doubt I will write it in Python, I fear the length of
+runtime neccesary to complete it and I am undecided about PHP.  I am still undecided on writing the Stringaling examples in 
+Go and Zig and Odin as I have language and compiler support installed for them. I cringe at the thought of writing a Java one 
+although I may as an example of why Java is a horrible and to showcase yes I can write in that awful language, the same can be 
+said of C# or any other .NET language.
+  
+I also have Node.Js, Ruby and R, all of which are inherently slow, but worthwhile in their own respects from an administrative 
+(ruby), quick web app (Node.JS), and data manipulation and visualization (R) standpoint which I use my current role as an IT
+Administrator.
+
+   
