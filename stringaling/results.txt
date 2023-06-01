@@ -14,3 +14,18 @@ Python : byLog10 :  Total :  6.354712053012918  : Average :  0.06354712053012918
 Python : byLog10Modulo : Total :  6.385099788938533  :  Average :  0.06385099788938532
 Python : byDivision :  Total :  27.33091887003684  : Average :  0.2733091887003684
 Python : byRecursiveDiv :  Total :  19.578695091040572  : Average :  0.1957869509104057
+Java : byString : Total: 0.376000 : Average: 0.003760
+Java : byLog10 : Total: 0.109000 : Average: 0.001090 : Total: 17158
+Java : byLog10Mod : Total: 0.093000 : Average: 0.000930 : Total: 17158
+Java : byDivision : Total: 0.183000 : Average: 0.001830 : Total: 17158
+Java : byRecusiveDiv : Total: 0.300000 : Average: 0.003000 : Total: 17158
+C : byString : Total: 0.280176 : Average: 0.002802
+C : byLog10 : Total: 0.062395 : Average: 0.000624 : found 17158
+C : byDivision : Total: 0.000062 : Average: 0.000001
+C : byRecursiveDiv : Total: 0.000062 : Average: 0.000001
+C : byNewLog10 : Total: 0.002514 : Average: 0.000025
+PHP : byString : Total : 0.374670 : Average : 0.003747
+PHP : byStringModulo : Total : 0.611143 : Average : 0.006111
+PHP : byLog10 : Total : 0.288343 : Average : 0.002883
+PHP : byDivision : Total : 22.723047 : Average : 0.227230
+PHP : byRecursiveDiv : Total : 1.670288 : Average : 0.016703 : 17158.000000 of 30000.000000
