@@ -19,5 +19,12 @@ and C99 make you think hard about what you are writing, but memory safety is not
 lulls you into a deep sense of security. 
 
 Random things, Python is so slow, I am mostly no longer going to use it in examples. 1 of the methods in the stringaling section (even number digits in an Integer array) takes over 20s to do 100 loops over the same 
-array of 30000 integers. I only time the time spent making the calculation, and leave out the loop calls.  All other examples where 0.20s or less, so that's a factor of greater than 100x slower.    
+array of 30000 integers. I only time the time spent making the calculation, and leave out the loop calls.  All other examples using the same method took 0.20s or less to run, so that's a factor of greater than 100x 
+slower.   
+
+I do this in my spare time and try keep the code some what uniform.  I have no time for people worried about camelCase or snake_case.  I use simple variable names here for a reason, but try to be consistent across
+all languages so i in C is the same as i in php, java, rust, etc... as the variable i is the array I hold the integers in the stringaling section.  I may possibly add argc,argv to enter filename and number of 
+iterations the examples use.  For the sake of speed in writing these example exercises and not having to test those functions extensively.  I did rewrite my random unsigned integer program to take input to make writing
+random unsigned integer files easier.
+
 
