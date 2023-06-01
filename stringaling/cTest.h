@@ -6,7 +6,7 @@ int numDigits(unsigned int i)
         return 1;
     int count = 0;
     while (i != 0) {
-        i = i / 10;
+        i =(unsigned int) i / 10;
         ++count;
     }
     return count;

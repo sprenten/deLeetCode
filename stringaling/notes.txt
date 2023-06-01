@@ -1,4 +1,6 @@
+--- Star Date 20230531 ---
 
+Don't ask why, but I am going to make a Java program and use the Zing VM.
 
 --- Star Date 20230522 --- 
   unreal thoughts and shit ----

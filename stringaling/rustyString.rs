@@ -134,7 +134,7 @@ fn main()
                 z = z +1;
         }
         println!("Rust : byLog10Modulo : Total :  {} : Average : {}",total_perf,total_perf/100.0);
-//        println!("{} Evem Number Digits out of {} Integers tested",num,c);
+        println!("{} Evem Number Digits out of {} Integers tested",num,c);
 
 //      ByDivision  Performance
         let mut total_perf: f64 = 0.0;
