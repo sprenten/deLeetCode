@@ -2,7 +2,15 @@
 
 Don't ask why, but I am going to make a Java program and use the Zing VM.
 
---- Star Date 20230522 --- 
+** added after adding byString and byLog10 tests for Java  ***
+
+Some thoughts, even using Zing 17.0.7 JVM and compiler Java byString is slower than PHP!!!  Java is better at Log10 than PHP
+but about 2x as slow as C and Rust of 100 loops of 30000 Integers checking for even number of digits.  My Java is bit rusty, but
+this is a slight improvement from 20 years ago roughly when Java was about 2.5-3.0 times slower than C on basic tasks.  Being
+1.5-1.8x slower is still slow enough to matter.
+
+
+--- Star Date 20230522 ---
   unreal thoughts and shit ----
 
 I only started this project because of a YouTube video by CodeReport that used a string for numerical values and he used a modulo to determine if the number was even or not.
@@ -10,7 +18,7 @@ My immediate thought was horror at this solution.  It was the most junior dev th
 20+ years of experience have to take an IT Director role at school which I hate. So having a video of a senior dev making 2 possibly expensive mistakes in programming disgusted me. This is why Casey, Jonathon Blow, and others have been beating the drums on Clean Code and Uncle Bob's horrible experiment to go along with Agile.  You have clown cars putting out code fast in shit languages with shittier understanding of how computers operate.  Sometimes I wonder what would happen if someone tried to port Id's DOOM to C# and Unity or Java and a Java game engine at the same resolutions just to see how much slower it runs compared to taking the original game and running it on today's computers.  The good thing is I learned Rust and it's ok, but it has a long way to go. Rust does have security problems in the future if it goes main stream.  I am not against Rust        
 
     Languages --
-      Rust log10 performance is AMAZING on Windows  - best single metric on Windows overall. 
+      Rust log10 performance is AMAZING on Windows  - best single metric on Windows overall.
       gcc vs Rust on Windows sucks only because of log10 otherwise it is fast
       php Strings on Windows and Linux are better than Rust Strings
       Python just sucks on performance no matter the platform
@@ -21,19 +29,18 @@ My immediate thought was horror at this solution.  It was the most junior dev th
       Rust requires a larger program size on Linux about 4mb vs the gcc one on Linux.
       You have to jump through more hoops in Rust to do what you want to do or did do in C.
       Of course one of the first things I did in Rust was unsafe, read the binary file of integers into an array of unsigned integers.  That made me feel good!
-      
-      
+
+
     If you are going to ask why I didn't use vectors -  I wanted the simplest data structures I could use.  In C, you have to write your own data structures and for this I would have cheated using a FIFO queue instead of a vector.  
     You can't go wrong with bitwise & over modulo % for numbers which are exponent of 2 (ie... 2,4,8,16,32,64,....) in any language.
     Compiled languages seem to optimize modulo of numbers which are 2**n.
-    Strings are SLOW, anyone using numeric values as strings for a coding short cut is NOT a LeetCoder.  
-   
-    
+    Strings are SLOW, anyone using numeric values as strings for a coding short cut is NOT a LeetCoder.
+
+
     I may check out clang comparisons.  It should be faster than gcc on linux and lighter weight.  I may even do some llvm and intel compilations.
     Python log functions are SLOW, but iterative division is real slow in Python while recursive division is not.
-    
-   
-   
+
+
  --- limits.h
 CHAR_BIT        8       Defines the number of bits in a byte.
 SCHAR_MIN       -128    Defines the minimum value for a signed char.
