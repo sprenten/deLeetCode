@@ -1,6 +1,6 @@
 --- Star Date 202305029 ---
 
-Conner Hoekstra of Code Reports, a NVIDIA Sr Engineer/Developer at the time of the video was showing a solution to another
+Conor Hoekstra of Code Reports, a NVIDIA Sr Engineer/Developer at the time of the video was showing a solution to another
 LeetCode problem which is not optimized for speed or performance.  This time not in technical understanding of underlying computer 
 architecture using string representation of integers to find the number of digits which is faster using integers represented
 as integers in  log10, looped division, or recursive division in languages compiled to executables.  This time it was in the
