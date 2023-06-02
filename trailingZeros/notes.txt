@@ -1,0 +1,27 @@
+--- Star Date 20230602 ---
+
+This problem from LeetCode shows how inept the site is at evaluating code.  The function is supposed to return a char* pointer as a character
+array, while also passing in a char* pointer.  In C if you are passing in a pointer, but returning a value on a manipulation of that
+pointer's data then a new allocation of memory should be done and it's up to programmer to free it later after the value is returned. and if
+you are manipulating that input pointer and expecting it to change then the function return should be void or int to indicate success as the
+pointer and the data it is pointing to doesn't need to be returned, because the pointer exists outside of the function call already and
+all changes to the pointer's data done inside the function will still exist when exiting the function.  
+
+Why is this important?  Error handling and debugging, especially when working with strings or character arrays or array manipulation.
+Generally, you would want to make a copy of the original data before manipulating it.  That way an error doesn't necessarily cause system 
+failure and a bug doesn't cause you all  kinds of headaches in trying to track down what happened.  That's one of the many reasons I love C as
+it forces you into using good programming practices.
+
+On each of the C programs written to completion that I have done, the valgrind results have shown zero memory leaks. Yes, Small programs and 
+this program hasn't been ran over 3 million calls to the function.  
+
+  
+
+
+
+
+
+
+
+
+  
